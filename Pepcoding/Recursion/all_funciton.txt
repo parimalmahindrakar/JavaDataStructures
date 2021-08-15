@@ -1,0 +1,46 @@
+public static void factorial(int num) {
+
+    if( num == 0) {
+        return 1;
+    }
+
+    int x = factorial(num - 1);
+    int mul = num * x;
+    return mul;
+
+}
+
+public static void printArrayIncreasing(int arr[],int index) {
+
+    if(index >= arr.length) {
+        return;
+    }
+
+    System.out.println(arr[index]);
+    printArrayIncreasing(arr, index+1);
+
+} 
+
+
+public static int calculatePwr(int num,int pow) {
+
+    if(pow == 0) {
+        return 1;
+    }
+
+    int x = calculatePwr(num, pow-1);
+    int mul = x * num;
+    return mul; 
+
+
+}
+
+
+
+
+
+
+
+
+
+
