@@ -13,7 +13,7 @@ public class P12__MergeIntervals {
     }
 
     public static void mergeIntervals(int[][] arr) {
-
+         
     }
 }
 
