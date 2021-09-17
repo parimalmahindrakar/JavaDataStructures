@@ -3,7 +3,7 @@ package PACK1__Arrays;
 public class P7__MaxSubArraySum {
 
     public static void main(String[] args) {
-        int arr[] = { 2, 1, -1, 0, 8, 3 };
+        int arr[] = { -5, 4, 6, -3, 4, -1 };
         System.out.println(maxSubArray(arr));
     }
     
@@ -11,15 +11,15 @@ public class P7__MaxSubArraySum {
     public static int maxSubArray(int a[]) {
         
         int size = a.length;
-        int max_so_far = Integer.MIN_VALUE, max_ending_here = 0;
+        int max_so_far = Integer.MIN_VALUE, max = 0;
 
         for (int i = 0; i < size; i++) {
-            max_ending_here += a[i];
-            if (max_so_far < max_ending_here) {
-                max_so_far = max_ending_here;
+            max += a[i];
+            if (max_so_far < max) {
+                max_so_far = max;
             }
-            if (max_ending_here < 0) {
-                max_ending_here = 0;
+            if (max < 0) {
+                max = 0;
             }
         }
         
@@ -33,15 +33,15 @@ public class P7__MaxSubArraySum {
 
 
 /**int size = a.length;
-        int max_so_far = Integer.MIN_VALUE, max_ending_here = 0;
+        int max_so_far = Integer.MIN_VALUE, max = 0;
 
         for (int i = 0; i < size; i++) {
-            max_ending_here += a[i];
-            if (max_so_far < max_ending_here) {
-                max_so_far = max_ending_here;
+            max += a[i];
+            if (max_so_far < max) {
+                max_so_far = max;
             }
-            if (max_ending_here < 0) {
-                max_ending_here = 0;
+            if (max < 0) {
+                max = 0;
             }
         }
 
