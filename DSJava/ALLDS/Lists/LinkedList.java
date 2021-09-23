@@ -110,20 +110,6 @@ public class LinkedList {
 
     
 
-
-    // competative questions 
-
-    // public Node getMiddle(Node root_) {
-    //     Node fast, slow;
-    //     fast = slow = root_;
-
-    //     while (fast.next != null && fast.next.next != null) {
-    //         slow = slow.next;
-    //         fast = fast.next.next;
-    //     }
-    //     return slow;
-    // }
-
     public int size() {
         int cnt = 0;
         Node temp = root;
