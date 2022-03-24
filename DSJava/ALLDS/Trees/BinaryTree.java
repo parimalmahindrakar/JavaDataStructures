@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class BinaryTree {
 
     public static class Node {
@@ -24,8 +25,6 @@ public class BinaryTree {
         }
     }
 
-
-
     public static void display(Node node) {
 
         if (node == null) {
@@ -42,12 +41,10 @@ public class BinaryTree {
         display(node.left);
         display(node.right);
 
-
     }
 
-
     public static int size(Node node) {
-        if(node == null ) 
+        if (node == null)
             return 0;
         int ls = size(node.left);
         int rs = size(node.right);
@@ -55,16 +52,14 @@ public class BinaryTree {
         return ts;
     }
 
-    
     public static int sum(Node node) {
-        if(node == null ) 
+        if (node == null)
             return 0;
         int lsm = sum(node.left);
         int rsm = sum(node.right);
         int tsm = lsm + rsm + node.data;
         return tsm;
     }
-
 
     public static int max(Node node) {
 
@@ -77,7 +72,6 @@ public class BinaryTree {
         return tm;
 
     }
-    
 
     public static int height(Node node) {
 
@@ -93,35 +87,32 @@ public class BinaryTree {
         return th;
     }
 
-
     public static void preorder(Node node) {
-        if(node == null) {
+        if (node == null) {
             return;
         }
-        System.out.print(node.data+" ");
+        System.out.print(node.data + " ");
         preorder(node.left);
         preorder(node.right);
     }
 
     public static void inorder(Node node) {
-        if(node == null) {
+        if (node == null) {
             return;
         }
         inorder(node.left);
-        System.out.print(node.data+" ");
+        System.out.print(node.data + " ");
         inorder(node.right);
     }
 
-
     public static void postorder(Node node) {
-        if(node == null) {
+        if (node == null) {
             return;
         }
         postorder(node.left);
         postorder(node.right);
-        System.out.print(node.data+" ");
+        System.out.print(node.data + " ");
     }
-
 
     public static void levelorder(Node node) {
         Queue<Node> mq = new ArrayDeque<>();
@@ -142,12 +133,10 @@ public class BinaryTree {
         }
     }
 
-
     public static void printPath(Node root) {
         ArrayList<Integer> path = new ArrayList<>();
         find(root, 12, path);
-        System.out.println("Path : "+path);
-
+        System.out.println("Path : " + path);
     }
 
     public static boolean find(Node node, int data, ArrayList<Integer> path) {
@@ -174,21 +163,37 @@ public class BinaryTree {
         return false;
 
     }
-    
 
-    public static void printKLevelsDows(Node node, int k) {
+    public static void printKLevelsDown(Node node, int k) {
 
-        if(node == null || k < 0 )
+        if (node == null || k < 0)
             return;
-        if(k == 0)
+        if (k == 0)
             System.out.println(node.data);
-        
-        printKLevelsDows(node.left, k - 1);
-        printKLevelsDows(node.right, k - 1);
-               
-        
+
+        printKLevelsDown(node.left, k - 1);
+        printKLevelsDown(node.right, k - 1);
+
     }
 
+    public static void printRootToLeafPath(Node node, String path, int sum, int low, int high) {
+
+        if (node == null) {
+            return;
+        }
+
+        if (node.left == null && node.right == null) {
+            sum += node.data;
+            if (sum >= low && sum <= high) {
+                System.out.println(path + node.data + "  ");
+            }
+            return;
+        }
+
+        printRootToLeafPath(node.left, path + node.data + "", sum + node.data, low, high);
+        printRootToLeafPath(node.right, path + node.data + "", sum + node.data, low, high);
+
+    }
 
     public static void printSingleChildNodes(Node node, Node parent) {
 
@@ -206,14 +211,12 @@ public class BinaryTree {
         printSingleChildNodes(node.right, node);
     }
 
-
-
     public static Node removeLeaves(Node node) {
 
         if (node == null) {
-            return null;    
+            return null;
         }
-        
+
         if (node.left == null && node.right == null) {
             return null;
         }
@@ -224,25 +227,49 @@ public class BinaryTree {
 
     }
 
+    public static int diameterOfBinaryTree(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        int ld = diameterOfBinaryTree(node.left);
+        int rd = diameterOfBinaryTree(node.right);
+        int f = height(node.left) + height(node.right) + 2;
+        int dai = Math.max(f, Math.max(ld, rd));
+        return dai;
+    }
+
+    static int tilt = 0;
+    public static int titlOfBinaryTree(Node node) {
+
+        int ls = titlOfBinaryTree(node.left);
+        // will return left's sum and change tilt for left side
+
+        int rs = titlOfBinaryTree(node.right);
+        // will return right's sum and change tilt for right side
+
+        int localTilt = Math.abs(ls - rs);
+        tilt += localTilt;
+        int ts = ls+rs+node.data;
+        return ts;
+
+    }
 
 
-
-
-
-
-
+    public static void isBinarySearchTree() {
+        
+    }
 
 
     public static void main(String[] args) {
-        
-        Integer arr[] = { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null, null };
+
+        Integer arr[] = { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null,
+                null };
 
         Node root = new Node(arr[0], null, null);
         Pair rtp = new Pair(root, 1);
-        
+
         Stack<Pair> st = new Stack<>();
         st.push(rtp);
-
 
         int idx = 0;
         while (st.size() > 0) {
@@ -274,9 +301,8 @@ public class BinaryTree {
                 st.pop();
             }
         }
-        
 
-        // display(root);
+        display(root);
         // System.out.println("size : "+size(root));
         // System.out.println("sum : "+sum(root));
         // System.out.println("max : "+max(root));
@@ -296,9 +322,10 @@ public class BinaryTree {
         // find(root, 70);
         // System.out.println("Arraylist : "+path);
 
-        printPath(root);
+        // printPath(root);
+        // printRootToLeafPath(root, "", 0, 10, 200);
+        System.out.println("\n\nDiameter : " + diameterOfBinaryTree(root));
 
     }
-
 
 }
