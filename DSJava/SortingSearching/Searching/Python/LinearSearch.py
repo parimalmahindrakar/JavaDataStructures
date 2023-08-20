@@ -7,7 +7,7 @@ def linear_search(arr, element):
     return index_of_element
 
 if __name__ == '__main__':
-    arr = [1, 4, 3, 2, 1, 777]
+    arr = [1, 2, 3, 4, 5, 6, 777]
     index = linear_search(arr, 777)
     print(index)
     index = linear_search(arr, 888)
