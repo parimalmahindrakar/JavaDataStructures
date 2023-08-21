@@ -106,7 +106,7 @@ public class BinarySearchTree {
         }
         return node;
     }
-    
+
 
     public static Node remove(Node node, int data) {
         if (node == null) {
@@ -146,7 +146,7 @@ public class BinarySearchTree {
         sum += original;
         ReplaceWithSumofLarger(node.left);
     }
-    
+
     public static int LowestCommonAncestor(Node node, int d1, int d2) {
         if (d1 < node.data && d2 < node.data) {
             return LowestCommonAncestor(node.left, d1, d2);
@@ -156,7 +156,7 @@ public class BinarySearchTree {
             return node.data;
         }
     }
-    
+
     public static void PrintInRange(Node node, int d1, int d2) {
         if (node == null) {
             return;

@@ -1,6 +1,6 @@
 
 public class LinkedList {
-    
+
     static class Node {
         int data;
         Node next;
@@ -25,7 +25,7 @@ public class LinkedList {
         }
         temp.next = node;
     }
-    
+
     public void addFirst(Node node) {
         if (root == null) {
             root = node;
@@ -37,11 +37,11 @@ public class LinkedList {
     }
 
     public void addMiddle(Node node) {
-
         if (root == null) {
             root = node;
             return;
         }
+
         Node fast, slow;
         fast = slow = root;
 
@@ -52,11 +52,7 @@ public class LinkedList {
 
         node.next = slow.next;
         slow.next = node;
-
-    }       
-
-    // -------------------------------------------
-
+    }
 
     public int delete() {
         if (root == null) {
@@ -85,7 +81,7 @@ public class LinkedList {
     public int deleteMiddle() {
 
         Node fast, slow, temp;
-        fast = temp =slow = root;
+        fast = temp = slow = root;
 
         while (fast.next != null) {
             temp = slow;
@@ -97,7 +93,6 @@ public class LinkedList {
         temp.next = slow.next;
         return data;
     }
-    // ---------------------------------
 
     public void display() {
         Node temp = root;
@@ -107,8 +102,6 @@ public class LinkedList {
         }
         System.out.println();
     }
-
-    
 
     public int size() {
         int cnt = 0;
@@ -120,10 +113,7 @@ public class LinkedList {
         return cnt;
     }
 
-
-
     // Write a Program to reverse the Linked List. (Both Iterative and recursive)
-
     public void reverseIterative() {
 
         Node prev = null;
@@ -156,14 +146,14 @@ public class LinkedList {
     // Given a linked list, write a function to reverse every k nodes
 
     /**
-     *  Input: 1->2->3->4->5->6->7->8->NULL, K = 3 
-        Output: 3->2->1->6->5->4->8->7->NULL 
-        Input: 1->2->3->4->5->6->7->8->NULL, K = 5 
-        Output: 5->4->3->2->1->8->7->6->NULL 
+     *  Input: 1->2->3->4->5->6->7->8->NULL, K = 3
+        Output: 3->2->1->6->5->4->8->7->NULL
+        Input: 1->2->3->4->5->6->7->8->NULL, K = 5
+        Output: 5->4->3->2->1->8->7->6->NULL
      */
 
     public Node reverseKNode(Node head, int k) {
-        if(head == null) 
+        if(head == null)
             return null;
         Node curr = head;
         Node next = null;
@@ -182,7 +172,7 @@ public class LinkedList {
         }
         return prev;
     }
-    
+
     // ------------------------------------------------------------
 
 
@@ -205,7 +195,7 @@ public class LinkedList {
         } else {
             System.out.println("Loop not found");
         }
-    } 
+    }
 
     // Remove Duplicates in a sorted Linked List.
 
@@ -242,7 +232,7 @@ public class LinkedList {
 
     }
     //--------------------------------------------------
-    
+
 
     // Write a Program to Move the last element to Front in a Linked List.
 
@@ -263,7 +253,7 @@ public class LinkedList {
     }
 
     //----------------------------------------------
-    // Add 1 to a number represented as linked list 
+    // Add 1 to a number represented as linked list
 
     public int addOneToList(Node node) {
         if (node == null)
@@ -273,7 +263,7 @@ public class LinkedList {
         return res / 10;
 
     }
-    
+
     public Node addOne(Node node) {
         int c = addOneToList(node);
         if (c == 1) {
@@ -287,7 +277,7 @@ public class LinkedList {
     // Add two numbers represented by linked lists.
 
     public static Node addTwoLinkedLists(Node root1, Node root2) {
-        
+
         Node dummy = new Node(0);
 
         Node p = root1, q = root2, curr = dummy;
@@ -315,7 +305,7 @@ public class LinkedList {
     // Intersection of two Sorted Linked List.
     /*
         First linked list: 1->2->3->4->6
-        Second linked list be 2->4->6->8, 
+        Second linked list be 2->4->6->8,
         Output: 2->4->6.
     */
 
@@ -336,7 +326,7 @@ public class LinkedList {
         }
         return slow;
     }
-    
+
     public Node mergesort(Node root_) {
 
         if (root_.next == null || root_ == null) {
@@ -395,7 +385,7 @@ public class LinkedList {
 
 
     public static void main(String[] args) {
-    
+
         LinkedList ls = new LinkedList();
         ls.add(new Node(5));
         ls.add(new Node(8));
@@ -413,35 +403,35 @@ public class LinkedList {
         // ls.add(new Node(8));
         // ls.add(new Node(9));
         ls.display();
-        
-        
-        
 
-        
-        
+
+
+
+
+
         /*  1. ====> reverse Interative and Recursive both
             -----------------------------------------------
             ls.reverseIterative();   // [OR]
             ls.root = ls.reverseRecursive(ls.root);
             ls.root = ls.reverseKNode(ls.root, 3);
             ls.display();
-        
+
             2. ====> remove duplicates from sorted LL
             -----------------------------------------------
             ls.removeDuplicatesFromSortLL(ls.root); [OR]
             ls.removeDuplicatesFromUnsortLL();
             ls.display();
-        
-            3. ====> Move last element to first 
+
+            3. ====> Move last element to first
             -----------------------------------------------
             ls.moveToFront();
             ls.display();
-            
+
             4. ====> Add one to the linkedlist
             -----------------------------------------------
             ls.root = ls.addOne(ls.root);
             ls.display();
-        
+
             5. ====> Add two linkedlists
             -----------------------------------------------
             LinkedList ls2 = new LinkedList();
@@ -449,7 +439,7 @@ public class LinkedList {
             // ls2.add(new Node(8));
             // ls2.add(new Node(9));
             ls2.display();
-            
+
             Node newroot = addTwoLinkedLists(ls.root, ls2.root);
             Node temp = newroot;
             while (temp != null) {
@@ -457,14 +447,14 @@ public class LinkedList {
                 temp = temp.next;
             }
             System.out.println();
-            
 
 
-        
+
+
         */
 
 
-        
+
 
 
 
