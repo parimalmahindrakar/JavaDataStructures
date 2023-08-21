@@ -29,7 +29,7 @@ public class DoublyLinkedList {
         size++;
 
     }
-    
+
     public static void addFirst(Node node) {
         if (size == 0) {
             head = node;
@@ -84,9 +84,9 @@ public class DoublyLinkedList {
         // System.out.println(head.data);
 
     }
-    
 
-   
+
+
 
 
 }
