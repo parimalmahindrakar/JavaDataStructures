@@ -256,7 +256,7 @@ public class BinaryTree {
 
 
     public static void isBinarySearchTree() {
-        
+
     }
 
 
